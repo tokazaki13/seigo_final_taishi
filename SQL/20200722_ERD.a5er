@@ -1,0 +1,819 @@
+﻿# A5:ER FORMAT:14
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=9
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSTypeName=Oracle Database
+GenerateComment=0
+GenerateDropTableStatement=1
+DropTableIfExists=0
+BackupRestoreTempTable=0
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=shopping_cart
+LName=【一時保存用】ショッピングカートテーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=3200
+Top=850
+Field="商品コード","itemcode","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品名","name","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品詳細","author","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜価格","price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="割引額","discounted","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税込価格","price_tax","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="数量","num","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜小計","total","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税込小計","total_tax","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品分類名","item_category","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="ログインID","login_id","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$A4A0A0
+ModifiedDateTime=20200723003701
+Position="MAIN",3200,850
+ZOrder=-1
+
+[Entity]
+PName=【編集禁止】受注テーブル（一覧表示用）
+LName=受注テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=1200
+Top=750
+Field="受注ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ログインID","login_id","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="顧客名","name","varchar(16)","NOT NULL",,"","",$FFFFFFFF,""
+Field="受注日","order_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+Field="請求額","billing_amount","varchar(8)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="配送料","shipping_fee","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="入金状況","received","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="キャンセル状況","returned","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="出力状況","printed","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="配送状況","delivered","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="キャンセル対応受注ID","canceled_id","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="電話番号","tel","varchar(11)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="メールアドレス","mail_address","varchar(128)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)",,,"","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723004219
+Position="MAIN",1200,750
+ZOrder=-2
+
+[Entity]
+PName=【編集禁止】受注明細テーブル（一覧表示用）
+LName=受注明細テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=1250
+Top=250
+Field="受注明細ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="受注ID","order_id","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品コード","itemcode","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品名","name","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="数量","ordernum","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜価格","price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税込価格","price_with_tax","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜小計","total","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税込小計","total_with_tax","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)",,,"","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723003830
+Position="MAIN",1250,250
+ZOrder=-3
+
+[Entity]
+PName=入出庫履歴テーブル
+LName=入出庫履歴テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=1900
+Top=100
+Field="入出庫履歴ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="商品コード","itemcode","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="入出庫日","stock_date","date","NOT NULL",,"","",$FFFFFFFF,""
+Field="入庫数","in_num","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="出庫数","out_num","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)",,,"","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723003820
+Position="MAIN",1900,100
+ZOrder=-4
+
+[Entity]
+PName=商品分類テーブル
+LName=商品分類テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=450
+Top=800
+Field="商品分類ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="分類名","name","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="割引率","discount_rate","float","NOT NULL",,"1","",$FFFFFFFF,""
+Field="一律価格","flat_price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="セール状況","sale_flag","varchar(8)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="税率","tax","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","delete_flag","varchar(4)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723003752
+Position="MAIN",450,800
+ZOrder=-7
+
+[View]
+PName=受注・受注明細一覧テーブル
+LName=受注・受注明細一覧テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  【編集禁止】受注テーブル（一覧表示用）.id AS 受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.name AS 顧客名\n  , 【編集禁止】受注テーブル（一覧表示用）.order_date AS 受注日\n  , 【編集禁止】受注テーブル（一覧表示用）.billing_amount AS 請求額\n  , 【編集禁止】受注テーブル（一覧表示用）.shipping_fee AS 配送料\n  , 【編集禁止】受注明細テーブル（一覧表示用）.itemcode AS 商品コード\n  , 【編集禁止】受注明細テーブル（一覧表示用）.name AS 商品名\n  , 【編集禁止】受注明細テーブル（一覧表示用）.ordernum AS 数量\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price AS 税抜価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price_with_tax AS 税抜価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total AS 税抜小計\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total_with_tax AS 税込小計\n  , 【編集禁止】受注テーブル（一覧表示用）.received AS 入金状況\n  , 【編集禁止】受注テーブル（一覧表示用）.returned AS キャンセル状況\n  , 【編集禁止】受注テーブル（一覧表示用）.delivered AS 配送状況\n  , 【編集禁止】受注テーブル（一覧表示用）.printed AS 出力状況\n  , 【編集禁止】受注テーブル（一覧表示用）.canceled_id AS キャンセル対応受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.tel AS 電話番号\n  , 【編集禁止】受注テーブル（一覧表示用）.mail_address AS メールアドレス\n  , 【編集禁止】受注テーブル（一覧表示用）.bikou AS 備考\n  , 【編集禁止】受注テーブル（一覧表示用）.change_date AS 更新日\nFROM\n  【編集禁止】受注テーブル（一覧表示用） \n  INNER JOIN 【編集禁止】受注明細テーブル（一覧表示用） \n    ON 【編集禁止】受注テーブル（一覧表示用）.id = 【編集禁止】受注明細テーブル（一覧表示用）.order_id\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",2350,850
+ZOrder=-6
+Page=MAIN
+Left=2350
+Top=850
+
+[View]
+PName=出庫待ちリスト
+LName=出庫待ちリスト
+Comment=
+ViewOption=
+Query=SELECT\n  【編集禁止】受注テーブル（一覧表示用）.id AS 受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.name AS 顧客名\n  , 【編集禁止】受注テーブル（一覧表示用）.order_date AS 受注日\n  , 【編集禁止】受注テーブル（一覧表示用）.billing_amount AS 請求額\n  , 【編集禁止】受注テーブル（一覧表示用）.shipping_fee AS 配送料\n  , 【編集禁止】受注明細テーブル（一覧表示用）.itemcode AS 商品コード\n  , 【編集禁止】受注明細テーブル（一覧表示用）.name AS 商品名\n  , 【編集禁止】受注明細テーブル（一覧表示用）.ordernum AS 数量\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price AS 税抜価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price_with_tax AS 税込価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total AS 税抜小計\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total_with_tax AS 税込小計\n  , 【編集禁止】受注テーブル（一覧表示用）.received AS 入金状況\n  , 【編集禁止】受注テーブル（一覧表示用）.returned AS キャンセル状況\n  , 【編集禁止】受注テーブル（一覧表示用）.delivered AS 配送状況 \nFROM\n  【編集禁止】受注テーブル（一覧表示用） \n  INNER JOIN 【編集禁止】受注明細テーブル（一覧表示用） \n    ON 【編集禁止】受注テーブル（一覧表示用）.id = 【編集禁止】受注明細テーブル（一覧表示用）.order_id \nWHERE\n  【編集禁止】受注テーブル（一覧表示用）.received = 1 \n  AND 【編集禁止】受注テーブル（一覧表示用）.returned = 0 \n  AND 【編集禁止】受注テーブル（一覧表示用）.delivered = 0\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",2850,650
+ZOrder=-5
+Page=MAIN
+Left=2850
+Top=650
+
+[Entity]
+PName=商品履歴テーブル
+LName=商品履歴テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=800
+Top=50
+Field="更新履歴ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="商品コード","itemcode","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品名","name","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品詳細","author","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="セール状況","sale_status","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="定価","price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="セール価格","sale_price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="一律価格","flat_price","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="商品分類ID","item_category_id","varchar(4)","NOT NULL",,"","",$FFFFFFFF,""
+Field="分類名","分類名","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="割引率","割引率","float","NOT NULL",,"","",$FFFFFFFF,""
+Field="税率","税率","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="セールフラグ","sale_flag","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="取扱状況","delete_flag","int","NOT NULL",,"0","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)",,,"","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723003738
+Position="MAIN",800,50
+ZOrder=-8
+
+[View]
+PName=商品情報一覧テーブル
+LName=商品情報一覧テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  i1.id AS 更新履歴ID\n  , i1.itemcode AS 商品コード\n  , i1.name AS 商品名\n  , i1.author AS 商品詳細\n  , i1.sale_status AS セール状況\n  , i1.現在価格 AS 現在価格\n  , i1.price AS 定価\n  , i1.sale_price AS セール価格\n  , i1.flat_price AS 一律価格\n  , i1.item_category_id AS 商品分類ID\n  , i1.分類名 AS 分類名\n  , i1.割引率 AS 割引率\n  , i1.税率 AS 税率\n  , i1.sale_flag AS セールフラグ\n  , i1.delete_flag AS 取扱状況\n  , i1.bikou AS 備考\nFROM\n  表示用商品履歴テーブル i1 \n  INNER JOIN ( \n    SELECT\n      表示用商品履歴テーブル.itemcode AS F1\n      , max(表示用商品履歴テーブル.id) AS F2 \n    FROM\n      表示用商品履歴テーブル \n    GROUP BY\n      表示用商品履歴テーブル.itemcode\n  ) i2 \n    ON i2.F1 = i1.itemcode \n    AND i2.F2 = i1.id\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",50,50
+ZOrder=-9
+Page=MAIN
+Left=50
+Top=50
+
+[View]
+PName=表示用入出庫履歴テーブル
+LName=表示用入出庫履歴テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  入出庫履歴テーブル.id AS 入出庫履歴ID\n  , 入出庫履歴テーブル.itemcode AS 商品コード\n  , 入出庫履歴テーブル.stock_date AS 入出庫日\n  , 入出庫履歴テーブル.in_num AS 入庫数\n  , 入出庫履歴テーブル.out_num AS 出庫数\n  , 入出庫履歴テーブル.bikou AS 備考\n  , 入出庫履歴テーブル.change_date AS 更新日\nFROM\n  入出庫履歴テーブル\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",2450,100
+ZOrder=-12
+Page=MAIN
+Left=2450
+Top=100
+
+[View]
+PName=発送チェックシート
+LName=発送チェックシート
+Comment=
+ViewOption=
+Query=SELECT\n  【編集禁止】受注テーブル（一覧表示用）.id AS 受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.name AS 顧客名\n  , 【編集禁止】受注テーブル（一覧表示用）.order_date AS 受注日\n  , 【編集禁止】受注テーブル（一覧表示用）.billing_amount AS 請求額\n  , 【編集禁止】受注テーブル（一覧表示用）.shipping_fee AS 配送料\n  , 【編集禁止】受注明細テーブル（一覧表示用）.itemcode AS 商品コード\n  , 【編集禁止】受注明細テーブル（一覧表示用）.name AS 商品名\n  , 【編集禁止】受注明細テーブル（一覧表示用）.ordernum AS 数量\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price AS 税抜価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price_with_tax AS 税込価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total AS 税抜小計\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total_with_tax AS 税込小計\n  , 【編集禁止】受注テーブル（一覧表示用）.received AS 入金状況\n  , 【編集禁止】受注テーブル（一覧表示用）.returned AS キャンセル状況\n  , 【編集禁止】受注テーブル（一覧表示用）.delivered AS 配送状況\nFROM\n  【編集禁止】受注テーブル（一覧表示用） \n  INNER JOIN 【編集禁止】受注明細テーブル（一覧表示用） \n    ON 【編集禁止】受注テーブル（一覧表示用）.id = 【編集禁止】受注明細テーブル（一覧表示用）.order_id \nWHERE\n  【編集禁止】受注テーブル（一覧表示用）.received = 1 \n  AND 【編集禁止】受注テーブル（一覧表示用）.returned = 0 \n  AND 【編集禁止】受注テーブル（一覧表示用）.delivered = 0 \n  AND 【編集禁止】受注テーブル（一覧表示用）.printed = 1\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",2850,1350
+ZOrder=-11
+Page=MAIN
+Left=2850
+Top=1350
+
+[View]
+PName=在庫テーブル
+LName=在庫テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  入出庫履歴テーブル.itemcode AS 商品コード\n  , 商品情報一覧テーブル.name AS 商品名\n  , (sum(入出庫履歴テーブル.in_num) - sum(入出庫履歴テーブル.out_num)) AS 在庫数 \nFROM\n  入出庫履歴テーブル \n  LEFT OUTER JOIN 商品情報一覧テーブル \n    ON 入出庫履歴テーブル.itemcode = 商品情報一覧テーブル.itemcode \nGROUP BY\n  入出庫履歴テーブル.itemcode\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",2900,200
+ZOrder=-10
+Page=MAIN
+Left=2900
+Top=200
+
+[View]
+PName=表示用顧客履歴テーブル
+LName=表示用顧客履歴テーブル
+Comment=SELECT\n  顧客履歴テーブル.id -- 更新履歴ID\n  , 顧客履歴テーブル.login_id -- ログインID\n  , 顧客履歴テーブル.name -- 顧客名\n  , 顧客履歴テーブル.tel -- 電話番号\n  , 顧客履歴テーブル.mail_address -- メールアドレス\n  , 顧客履歴テーブル.zipcode -- 郵便番号\n  , 顧客履歴テーブル.address -- 住所\n  , 顧客履歴テーブル.deliver_id -- 配送ID\n  , 配送テーブル.areas -- 配送地域名\n  , 顧客履歴テーブル.customer_discount -- 顧客分類\n  , 顧客履歴テーブル.bikou -- 備考\n  , 顧客履歴テーブル.registered_date -- 登録日\n  , 顧客履歴テーブル.change_date -- 更新日\nFROM\n  顧客履歴テーブル \n  INNER JOIN 配送テーブル \n    ON 顧客履歴テーブル.deliver_id = 配送テーブル.id
+ViewOption=
+Query=SELECT\n  顧客履歴テーブル.id AS 更新履歴ID\n  , 顧客履歴テーブル.login_id AS ログインID\n  , 顧客履歴テーブル.name AS 顧客名\n  , 顧客履歴テーブル.tel AS 電話番号\n  , 顧客履歴テーブル.mail_address AS メールアドレス\n  , 顧客履歴テーブル.zipcode AS 郵便番号\n  , 顧客履歴テーブル.address AS 住所\n  , 顧客履歴テーブル.deliver_id AS 配送ID\n  , 配送テーブル.areas AS 配送地域名\n  , 顧客履歴テーブル.customer_discount AS 顧客分類\n  , 顧客履歴テーブル.bikou AS 備考\n  , 顧客履歴テーブル.registered_date AS 登録日\n  , 顧客履歴テーブル.change_date AS 更新日\nFROM\n  顧客履歴テーブル \n  INNER JOIN 配送テーブル \n    ON 顧客履歴テーブル.deliver_id = 配送テーブル.id\n
+LNameByComment=1
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",450,1500
+ZOrder=-15
+Page=MAIN
+Left=450
+Top=1500
+
+[Entity]
+PName=配送テーブル
+LName=配送テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=1400
+Top=1700
+Field="配送ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="配送料","fee","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="配送地域","areas","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="税率","tax","float","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","delete_flag","varchar(4)","NOT NULL",,"\q0\q","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)",,,"","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723003810
+Position="MAIN",1400,1700
+ZOrder=-16
+
+[View]
+PName=表示用商品履歴テーブル
+LName=表示用商品履歴テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  商品履歴テーブル.id AS 更新履歴ID\n  , 商品履歴テーブル.itemcode AS 商品コード\n  , 商品履歴テーブル.name AS 商品名\n  , 商品履歴テーブル.author AS 商品詳細\n  , 商品履歴テーブル.sale_status AS セール状況\n  , ( \n    CASE \n      WHEN (商品履歴テーブル.sale_flag = 1) \n        THEN 商品履歴テーブル.sale_price \n      WHEN (商品履歴テーブル.sale_flag = 2) \n        THEN 商品履歴テーブル.flat_price \n      ELSE 商品履歴テーブル.price \n      END\n  ) AS 現在価格\n  , 商品履歴テーブル.price AS 定価\n  , 商品履歴テーブル.sale_price AS セール価格\n  , 商品履歴テーブル.flat_price AS 一律価格\n  , 商品履歴テーブル.item_category_id AS 商品分類ID\n  , 商品履歴テーブル.分類名 AS 分類名\n  , 商品履歴テーブル.割引率 AS 割引率\n  , 商品履歴テーブル.税率 AS 税率\n  , 商品履歴テーブル.sale_flag AS セールフラグ\n  , 商品履歴テーブル.delete_flag AS 取扱状況\n  , 商品履歴テーブル.bikou AS 備考\nFROM\n  商品履歴テーブル\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",400,50
+ZOrder=-14
+Page=MAIN
+Left=400
+Top=50
+
+[View]
+PName=表示用商品分類テーブル
+LName=表示用商品分類テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  商品分類テーブル.id AS 商品分類ID\n  , 商品分類テーブル.name AS 分類名\n  , 商品分類テーブル.discount_rate AS 割引率\n  , 商品分類テーブル.flat_price AS 一律価格\n  , 商品分類テーブル.sale_flag AS セール状況\n  , 商品分類テーブル.tax AS 税率\n  , 商品分類テーブル.delete_flag AS 削除フラグ\n  , 商品分類テーブル.change_date AS 更新日 \nFROM\n  商品分類テーブル\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",0,800
+ZOrder=-13
+Page=MAIN
+Left=0
+Top=800
+
+[Entity]
+PName=顧客履歴テーブル
+LName=顧客履歴テーブル
+Comment=
+TableOption=
+Page=MAIN
+Left=950
+Top=1500
+Field="更新履歴ID","id","int auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="ログインID","login_id","varchar(8)","NOT NULL",,"","",$FFFFFFFF,""
+Field="顧客名","name","varchar(16)","NOT NULL",,"","",$FFFFFFFF,""
+Field="電話番号","tel","varchar(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="メールアドレス","mail_address","varchar(128)","NOT NULL",,"","",$FFFFFFFF,""
+Field="郵便番号","zipcode","varchar(7)","NOT NULL",,"","",$FFFFFFFF,""
+Field="住所","address","varchar(64)","NOT NULL",,"","",$FFFFFFFF,""
+Field="配送ID","deliver_id","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
+Field="顧客分類","customer_discount","varchar(8)","NOT NULL",,"\q1\q","",$FFFFFFFF,""
+Field="備考","bikou","varchar(255)","NOT NULL",,"","",$FFFFFFFF,""
+Field="登録日","registered_date","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","change_date","datetime","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF,""
+Field="パスワード","password","varchar(16)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=Gradation
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200723004300
+Position="MAIN",950,1500
+ZOrder=-17
+
+[View]
+PName=顧客情報一覧テーブル
+LName=顧客情報一覧テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  c1.id AS 更新履歴ID\n  , c1.login_id AS ログインID\n  , c1.name AS 顧客名\n  , c1.tel AS 電話番号\n  , c1.mail_address AS メールアドレス\n  , c1.zipcode AS 郵便番号\n  , c1.address AS 住所\n  , c1.deliver_id AS 配送ID\n  , c1.areas AS 配送地域\n  , c1.customer_discount AS 顧客分類\n  , c1.bikou AS 備考\nFROM\n  表示用顧客履歴テーブル c1 \n  INNER JOIN ( \n    SELECT\n      表示用顧客履歴テーブル.login_id AS F1\n      , max(表示用顧客履歴テーブル.id) AS F2 \n    FROM\n      表示用顧客履歴テーブル \n    GROUP BY\n      表示用顧客履歴テーブル.login_id\n  ) c2 \n    ON c2.F1 = c1.login_id \n    AND c2.F2 = c1.id\n
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",50,1550
+ZOrder=-18
+Page=MAIN
+Left=50
+Top=1550
+
+[Relation]
+Entity1=顧客履歴テーブル
+Entity2=表示用顧客履歴テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=更新履歴ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4286,5714,4225,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=429
+Bar2=571
+Bar3=422
+TermPos1=R
+TermPos2=R
+ZOrder=1
+
+[Relation]
+Entity1=表示用顧客履歴テーブル
+Entity2=顧客情報一覧テーブル
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3092,9500,1077,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=309
+Bar2=950
+Bar3=108
+TermPos1=R
+TermPos2=R
+ZOrder=2
+
+[Relation]
+Entity1=入出庫履歴テーブル
+Entity2=表示用入出庫履歴テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=入出庫履歴ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5845,4155,5845,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=584
+Bar2=416
+Bar3=584
+TermPos1=R
+TermPos2=R
+ZOrder=3
+
+[Relation]
+Entity1=表示用入出庫履歴テーブル
+Entity2=在庫テーブル
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,6110,3890,5508,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=611
+Bar2=389
+Bar3=551
+TermPos1=R
+TermPos2=R
+ZOrder=4
+
+[Relation]
+Entity1=商品履歴テーブル
+Entity2=表示用商品履歴テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=更新履歴ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5752,4248,5490,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=575
+Bar2=425
+Bar3=549
+TermPos1=R
+TermPos2=R
+ZOrder=5
+
+[Relation]
+Entity1=表示用商品履歴テーブル
+Entity2=商品情報一覧テーブル
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,6286,3714,5827,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=629
+Bar2=371
+Bar3=583
+TermPos1=R
+TermPos2=R
+ZOrder=6
+
+[Relation]
+Entity1=【編集禁止】受注テーブル（一覧表示用）
+Entity2=【編集禁止】受注明細テーブル（一覧表示用）
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1397,8603,295,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=140
+Bar2=860
+Bar3=30
+TermPos1=R
+TermPos2=R
+ZOrder=9
+
+[View]
+PName=表示用受注明細テーブル
+LName=表示用受注明細テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  【編集禁止】受注明細テーブル（一覧表示用）.id AS 受注明細ID\n  , 【編集禁止】受注明細テーブル（一覧表示用）.order_id AS 受注ID\n  , 【編集禁止】受注明細テーブル（一覧表示用）.itemcode AS 商品コード\n  , 【編集禁止】受注明細テーブル（一覧表示用）.name AS 商品名\n  , 【編集禁止】受注明細テーブル（一覧表示用）.ordernum AS 数量\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price AS 税抜価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.price_with_tax AS 税込価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total AS 税抜小計\n  , 【編集禁止】受注明細テーブル（一覧表示用）.total_with_tax AS 税込価格\n  , 【編集禁止】受注明細テーブル（一覧表示用）.bikou AS 備考 \nFROM\n  【編集禁止】受注明細テーブル（一覧表示用）\n
+LNameByComment=1
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",1900,800
+ZOrder=10
+Page=MAIN
+Left=1900
+Top=800
+
+[View]
+PName=表示用受注テーブル
+LName=表示用受注テーブル
+Comment=
+ViewOption=
+Query=SELECT\n  【編集禁止】受注テーブル（一覧表示用）.id AS 受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.login_id AS ログインID\n  , 【編集禁止】受注テーブル（一覧表示用）.name AS 顧客名\n  , 【編集禁止】受注テーブル（一覧表示用）.order_date AS 受注日\n  , 【編集禁止】受注テーブル（一覧表示用）.billing_amount AS 請求額\n  , 【編集禁止】受注テーブル（一覧表示用）.shipping_fee AS 配送料\n  , 【編集禁止】受注テーブル（一覧表示用）.received AS 入金状況\n  , 【編集禁止】受注テーブル（一覧表示用）.returned AS キャンセル状況\n  , 【編集禁止】受注テーブル（一覧表示用）.printed AS 出力状況\n  , 【編集禁止】受注テーブル（一覧表示用）.delivered AS 配送状況\n  , 【編集禁止】受注テーブル（一覧表示用）.canceled_id AS キャンセル対応受注ID\n  , 【編集禁止】受注テーブル（一覧表示用）.tel AS 電話番号\n  , 【編集禁止】受注テーブル（一覧表示用）.mail_address AS メールアドレス\n  , 【編集禁止】受注テーブル（一覧表示用）.bikou AS 備考\n  , 【編集禁止】受注テーブル（一覧表示用）.change_date AS 更新日 \nFROM\n  【編集禁止】受注テーブル（一覧表示用）\n
+LNameByComment=1
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",1900,1400
+ZOrder=11
+Page=MAIN
+Left=1900
+Top=1400
+
+[Relation]
+Entity1=【編集禁止】受注テーブル（一覧表示用）
+Entity2=表示用受注テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=受注ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,9489,8437,1095,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=949
+Bar2=844
+Bar3=110
+TermPos1=R
+TermPos2=R
+ZOrder=12
+
+[Relation]
+Entity1=【編集禁止】受注明細テーブル（一覧表示用）
+Entity2=表示用受注明細テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=受注明細ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2425,7575,2309,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=242
+Bar2=758
+Bar3=231
+TermPos1=R
+TermPos2=R
+ZOrder=13
+
+[Relation]
+Entity1=商品分類テーブル
+Entity2=商品履歴テーブル
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2192,7808,1297,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=219
+Bar2=781
+Bar3=130
+TermPos1=R
+TermPos2=R
+ZOrder=14
+
+[Relation]
+Entity1=商品分類テーブル
+Entity2=表示用商品分類テーブル
+RelationType1=1
+RelationType2=3
+Fields1=id
+Fields2=商品分類ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3068,6932,3560,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=307
+Bar2=693
+Bar3=356
+TermPos1=R
+TermPos2=R
+ZOrder=15
+
+[Relation]
+Entity1=商品履歴テーブル
+Entity2=入出庫履歴テーブル
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,678,9377,425,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=68
+Bar2=938
+Bar3=42
+TermPos1=R
+TermPos2=R
+ZOrder=16
+
+[Relation]
+Entity1=商品履歴テーブル
+Entity2=【編集禁止】受注明細テーブル（一覧表示用）
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=order_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1327,8673,1206,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=133
+Bar2=867
+Bar3=121
+TermPos1=R
+TermPos2=R
+ZOrder=17
+
+[Relation]
+Entity1=配送テーブル
+Entity2=【編集禁止】受注テーブル（一覧表示用）
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2848,7152,7379,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=285
+Bar2=715
+Bar3=738
+TermPos1=R
+TermPos2=R
+ZOrder=18
+
+[Relation]
+Entity1=顧客履歴テーブル
+Entity2=【編集禁止】受注テーブル（一覧表示用）
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=login_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2848,7152,2555,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=285
+Bar2=715
+Bar3=256
+TermPos1=R
+TermPos2=R
+ZOrder=19
+
+[Relation]
+Entity1=表示用受注明細テーブル
+Entity2=受注・受注明細一覧テーブル
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4250,5750,3367,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=425
+Bar2=575
+Bar3=337
+TermPos1=R
+TermPos2=R
+ZOrder=20
+
+[Relation]
+Entity1=表示用受注テーブル
+Entity2=受注・受注明細一覧テーブル
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4250,5750,5731,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=425
+Bar2=575
+Bar3=573
+TermPos1=R
+TermPos2=R
+ZOrder=21
+
+[Relation]
+Entity1=受注・受注明細一覧テーブル
+Entity2=出庫待ちリスト
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3181,6819,4250,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=318
+Bar2=682
+Bar3=425
+TermPos1=R
+TermPos2=R
+ZOrder=22
+
+[Relation]
+Entity1=受注・受注明細一覧テーブル
+Entity2=発送チェックシート
+RelationType1=1
+RelationType2=3
+Fields1=
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5561,4439,4250,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=556
+Bar2=444
+Bar3=425
+TermPos1=R
+TermPos2=R
+ZOrder=23
